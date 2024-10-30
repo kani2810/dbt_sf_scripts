@@ -1,0 +1,24 @@
+models:
+  - name: sl_sales
+    columns:
+      - name: ID
+        tests:
+          - unique
+          - not_null
+          - dups_test
+      - name: MAIL_ID
+        tests:
+          - unique
+          - not_null
+          - validate_mail
+      - name: SHIPPED_STATUS
+        tests:
+          - accepted_values:
+              values: ['Shipped']
+  - name: sam_emp
+    tests:
+      - dups_check_rn:
+          column_names:
+            - ID
+            - NAME
+          
