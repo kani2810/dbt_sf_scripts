@@ -1,0 +1,8 @@
+packages:
+  - package: brooklyn-data/dbt_artifacts
+    version: 2.7.0
+  - package: elementary-data/elementary
+    version: 0.16.1
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+sha1_hash: 545ab1d0d08ff1c7968ee0d38942077e9a56f3b9

@@ -1,0 +1,21 @@
+seeds:
+  - name: student
+    config:
+      column_types:
+        id: varchar(3)
+  - name: test_dollar
+    config:
+      delimiter: "$"
+      quote_columns: true
+  - name: country_code
+    config:
+      column_types:
+        code: varchar(4)
+      delimiter: "|"
+      quote_columns: true
+  - name: cc_dollar
+    config:
+      delimiter: "$"
+      column_types:
+        code: varchar(4)
+      alias: country_code_dollar

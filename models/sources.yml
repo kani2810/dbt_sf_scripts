@@ -1,0 +1,23 @@
+sources:
+  - name: test
+    database: TEST_DB
+    schema: TEST_SC
+    tables:
+      - name: DEPT
+  - name: new
+    database: NEW_DB
+    schema: NEW_SC
+    tables:
+      - name: DEPT_T
+  
+  - name: sl
+    database: SALES_DB
+    schema: SALES_SC
+    tables:
+      - name: SALES
+
+  - name: sample
+    database: SAMPLE_DB
+    schema: SC1
+    tables:
+      - name: EMP

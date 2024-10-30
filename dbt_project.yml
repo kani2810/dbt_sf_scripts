@@ -24,7 +24,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
+vars:
+  dept_name: 'IT'
+  dept_name_1: '''HR'''
+  new_wh: 'NEW_DBT_WH'
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -34,9 +37,31 @@ clean-targets:         # directories to be removed by `dbt clean`
 # instead be materialized as tables. Any models you add to the root of the models folder will 
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+on-run-end:
+  - "{{ dbt_artifacts.upload_results(results) }}"
 
 models:
   my_new_project:
+    +query_tag: dbt
     # Applies to all files under models/example/
     example:
       +materialized: table
+    stg:
+      +materialized: table
+      +query_tag: stg_query
+    dm:
+      +materialized: table
+      +transient: false
+
+  dbt_artifacts:
+    +database: LOGGING_DB
+    +schema: LOGGING_SC
+
+  elementary:
+    +database: LOGGING_DB
+    +schema: ELEMENTARY
+
+snapshots:
+  my_new_project:
+    snp:
+      +transient: false
